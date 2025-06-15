@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin", 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,30 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
 ]
+JAZZMIN_SETTINGS = {
+    "site_title": "Admin Restauration",
+    "site_header": "Cam-Soro Cloud",
+    "site_brand": "Resto Admin",
+    "welcome_sign": "Bienvenue Cam-Soro Admin",
+    "copyright": "© 2025 Cam-Soro",
+    "topmenu_links": [
+        {"name": "Retour au site", "url": "/", "new_window": False},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": ["auth", "app"],  # ordre apps, remplace 'app' par le nom de ton app
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "app.Menu": "fas fa-utensils",
+        "app.Commande": "fas fa-shopping-cart",
+        "app.CommandeDetail": "fas fa-clipboard-list",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
