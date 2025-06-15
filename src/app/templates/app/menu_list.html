@@ -1,0 +1,29 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Menu{% endblock %}
+{% block content %}
+<h1>Notre Menu</h1>
+<div class="row">
+  {% for plat in plats %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        {% if plat.image %}
+          <img src="{{ plat.image.url }}" class="card-img-top" alt="{{ plat.name }}">
+        {% else %}
+          <img src="{% static 'app/no-image.png' %}" class="card-img-top" alt="Pas d'image">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ plat.name }}</h5>
+          <p class="card-text">{{ plat.description|truncatewords:15 }}</p>
+          <p><strong>{{ plat.price }} FCFA</strong></p>
+          <a href="{% url 'app:menu_detail' plat.pk %}" class="btn btn-primary">Voir le détail</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>Aucun plat disponible.</p>
+  {% endfor %}
+</div>
+{% endblock %}

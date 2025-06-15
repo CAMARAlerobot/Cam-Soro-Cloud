@@ -13,4 +13,9 @@ urlpatterns = [
     path('commande/<int:pk>/', views.commande_detail, name='commande_detail'),  # Détail d’une commande
 
     path('profile/', views.profile, name='profile'),  # Page profil utilisateur (infos + commandes)
+
+    # Authentification
+    path('register/', views.register_view, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 ]

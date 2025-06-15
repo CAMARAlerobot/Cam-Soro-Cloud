@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+<h2>Se connecter</h2>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Connexion</button>
+</form>
+
+<p>Pas encore de compte ? <a href="{% url 'app:register' %}">S'inscrire</a></p>
+{% endblock %}

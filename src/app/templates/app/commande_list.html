@@ -1,0 +1,18 @@
+
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}Mes commandes{% endblock %}
+{% block content %}
+<h1>Mes commandes</h1>
+<ul>
+  {% for commande in commandes %}
+    <li>
+      <a href="{% url 'app:commande_detail' commande.pk %}">Commande #{{ commande.id }}</a> - {{ commande.date_commande|date:"d/m/Y H:i" }} - Statut: {{ commande.statut }}
+    </li>
+  {% empty %}
+    <li>Vous n'avez aucune commande.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

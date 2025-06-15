@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}Détail commande #{{ commande.id }}{% endblock %}
+{% block content %}
+<h1>Détail de la commande #{{ commande.id }}</h1>
+<p>Date : {{ commande.date_commande|date:"d/m/Y H:i" }}</p>
+<p>Statut : {{ commande.statut }}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plat</th>
+      <th>Quantité</th>
+      <th>Prix unitaire</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in details %}
+      <tr>
+        <td>{{ detail.plat.name }}</td>
+        <td>{{ detail.quantite }}</td>
+        <td>{{ detail.plat.price }} FCFA</td>
+        <td>{{ detail.total }} FCFA</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p><strong>Total commande :</strong> {{ commande.total }} FCFA</p>
+
+<a href="{% url 'app:commande_list' %}">Retour à mes commandes</a>
+{% endblock %}

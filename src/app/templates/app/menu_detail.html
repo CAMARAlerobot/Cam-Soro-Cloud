@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ plat.name }}{% endblock %}
+{% block content %}
+
+{% if plat.image %}
+  <img src="{{ plat.image.url }}" alt="{{ plat.name }}" style="max-width:300px;">
+{% endif %}
+<h1>{{ plat.name }}</h1>
+<p>{{ plat.description }}</p>
+<p>Prix : {{ plat.price }} FCFA</p>
+
+
+<form method="post" action="{% url 'app:commande_create' %}">
+  {% csrf_token %}
+  <input type="hidden" name="plat_id" value="{{ plat.id }}">
+  <label for="quantite">Quantité:</label>
+  <input type="number" name="quantite" id="quantite" value="1" min="1" required>
+  <button type="submit">Commander</button>
+</form>
+
+<a href="{% url 'app:menu_list' %}">Retour au menu</a>
+{% endblock %}

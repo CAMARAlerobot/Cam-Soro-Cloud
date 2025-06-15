@@ -5,7 +5,7 @@ class Menu(models.Model):
     name = models.CharField(max_length=100)          # Nom du plat
     description = models.TextField(blank=True)       # Description du plat
     price = models.DecimalField(max_digits=6, decimal_places=2)  # Prix du plat
-    image = models.ImageField(upload_to='static/app/images/', blank=True, null=True)  # Image du plat (optionnelle)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)  # Image du plat (optionnelle)
 
     def __str__(self):
         return self.name

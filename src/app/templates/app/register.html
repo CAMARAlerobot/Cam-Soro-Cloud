@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+<h2>Créer un compte</h2>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">S'inscrire</button>
+</form>
+
+<p>Vous avez déjà un compte ? <a href="{% url 'app:login' %}">Se connecter</a></p>
+{% endblock %}

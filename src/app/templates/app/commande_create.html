@@ -1,0 +1,20 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Nouvelle commande{% endblock %}
+{% block content %}
+<h1>Créer une commande</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="plat_id">Choisir un plat :</label>
+  <select name="plat_id" id="plat_id" required>
+    {% for plat in plats %}
+      <option value="{{ plat.id }}">{{ plat.name }} - {{ plat.price }} FCFA</option>
+    {% endfor %}
+  </select>
+  <label for="quantite">Quantité :</label>
+  <input type="number" name="quantite" id="quantite" value="1" min="1" required>
+  <button type="submit">Commander</button>
+</form>
+{% endblock %}
