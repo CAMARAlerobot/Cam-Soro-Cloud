@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% block title %}Cam-Soro Cloud{% endblock %}</title>
+    <title>{% block title %}Cam-Soro Cloud Food{% endblock %}</title>
     <!-- Bootstrap CSS (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'app/css/styles.css' %}"/>
@@ -15,7 +15,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="{% url 'app:menu_list' %}">Cam-Soro Cloud</a>
+    <a class="navbar-brand" href="{% url 'app:home' %}">Cam-Soro Cloud Food</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'app:menu_list' %}">Accueil</a>
+          <a class="nav-link" href="{% url 'app:home' %}">Accueil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'app:menu_list' %}">Menu</a>
@@ -70,7 +70,7 @@
   <div class="container d-flex justify-content-between">
     <div>
       <h5>Contact</h5>
-      <p>Email : contact@monresto.com<br>Téléphone : +225 00 00 00 00</p>
+      <p>Email : cam-soro@monresto.com<br>Téléphone : +225 00 00 00 00</p>
     </div>
     <div>
       <h5>Programme</h5>
