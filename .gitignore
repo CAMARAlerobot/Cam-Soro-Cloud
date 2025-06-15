@@ -1,0 +1,46 @@
+# Fichiers Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyd
+.Python
+env/
+venv/
+ENV/
+*.env
+
+# Environnements virtuels
+.venv/
+.env/
+env.bak/
+venv.bak/
+
+
+# VSCode, PyCharm, etc.
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac / Linux / Windows
+.DS_Store
+Thumbs.db
+
+# Coverage et tests
+htmlcov/
+coverage.xml
+.pytest_cache/
+
+# Migrations compilées
+*.mo
+*.pot
+
+# Docker, si utilisé
+*.log
+*.pid
+*.seed
+*.bak
+
+# node/npm si jamais utilisé avec frontend
+node_modules/
