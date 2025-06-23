@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Menu, Commande, CommandeDetail
+from .models import Menu, Commande, CommandeDetail, DailySpecial
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import authenticate, login, logout
@@ -37,8 +37,11 @@ def logout_view(request):
     messages.info(request, "Vous êtes déconnecté.")
     return redirect('app:login')
 
+
 def home(request):
-    return render(request, 'app/home.html')
+    special = DailySpecial.objects.order_by('-date').first()
+    return render(request, 'app/home.html', {'special': special})
+
 
 def menu_list(request):
     plats = Menu.objects.all()

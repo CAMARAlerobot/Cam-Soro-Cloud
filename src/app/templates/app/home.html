@@ -1,35 +1,123 @@
-
 {% extends 'app/base.html' %}
 {% load static %}
 
 {% block title %}Accueil - Mon Resto{% endblock %}
 
 {% block content %}
-<div class="text-center my-5">
-  <h1>Bienvenue chez Cam-Soro Cloud</h1>
-  <p class="lead">Découvrez nos plats délicieux, préparés avec soin chaque jour.</p>
-  <a href="{% url 'app:menu_list' %}" class="btn btn-primary btn-lg">Voir le menu complet</a>
+
+<!-- Carousel -->
+<div id="carousel" class="carousel mb-5">
+  <div class="slides">
+    {% for i in "1234567" %}
+      <img src="{% static 'app/images/slide'|add:i|stringformat:'s'|add:'.jpg' %}" alt="Plat {{ i }}">
+    {% endfor %}
+  </div>
+  <div class="carousel-text text-center">
+    <h3><em>Bienvenue chez</em></h3>
+    <h1>CAM-SORO <br> CLOUD FOOD</h1>
+    <a href="{% url 'app:menu_list' %}" class="btn">Explorer notre menu</a>
+  </div>
 </div>
+<!-- Section À propos -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">À propos de nous</h2>
+    <p class="lead text-center">
+      Chez <strong>CAM-SORO CLOUD FOOD</strong>, nous mêlons cuisine traditionnelle et modernité pour vous offrir une expérience unique.  
+      Notre mission est de ravir vos papilles avec des plats faits maison, servis dans une ambiance conviviale.
+    </p>
+  </div>
+</section>
 
-<hr>
-
-<h2 class="mb-4">Plats du jour</h2>
-<div class="row">
-  {% for plat in plats_du_jour %}
-    <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm">
-        {% if plat.image %}
-          <img src="{{ plat.image.url }}" class="card-img-top" alt="{{ plat.name }}">
+<!-- Plat du jour + Services -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      
+      <!-- Plat du jour -->
+      <div class="col-md-6">
+        <h2 class="mb-4">Plat du jour</h2>
+        {% if special %}
+          {% if special.menu.image %}
+            <div class="card h-100 shadow-sm">
+              <img src="{{ special.menu.image.url }}" class="card-img-top" alt="{{ special.menu.name }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ special.menu.name }}</h5>
+                <p class="card-text">{{ special.menu.description }}</p>
+                <p class="card-text"><strong>{{ special.menu.price }} FCFA</strong></p>
+                <a href="{% url 'app:commande_create' %}" class="btn btn-primary">Commander</a>
+              </div>
+            </div>
+          {% else %}
+            <p>Le plat du jour n'a pas d'image.</p>
+          {% endif %}
+        {% else %}
+          <p>Aucun plat du jour n’est disponible actuellement.</p>
         {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{ plat.name }}</h5>
-          <p class="card-text">{{ plat.description|truncatewords:20 }}</p>
-          <p><strong>{{ plat.price }} FCFA</strong></p>
+      </div>
+
+      <!-- Services -->
+      <div class="col-md-6">
+        <h2 class="mb-4">Nos Services</h2>
+        <div class="services">
+          <div>
+            <i class="bi bi-bag-check"></i>
+            <h5>Commandes en ligne</h5>
+            <p>Commandez facilement vos plats en ligne et faites-vous livrer à domicile.</p>
+          </div>
+          <div>
+            <i class="bi bi-clock-history"></i>
+            <h5>Service rapide</h5>
+            <p>Préparation rapide et respect des délais de livraison ou service à table.</p>
+          </div>
+          <div>
+            <i class="bi bi-emoji-smile"></i>
+            <h5>Satisfaction garantie</h5>
+            <p>Des plats savoureux et un service de qualité pour vous satisfaire pleinement.</p>
+          </div>
         </div>
       </div>
+
     </div>
-  {% empty %}
-    <p>Aucun plat du jour pour le moment.</p>
-  {% endfor %}
-</div>
+  </div>
+</section>
+
+<!-- Galerie -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Notre galerie</h2>
+    <div class="gallery">
+      {% for i in "1234" %}
+        <img src="{% static 'app/images/gallery'|add:i|stringformat:'s'|add:'.jpg' %}" alt="Photo {{ i }}">
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Témoignages -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Ils parlent de nous</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <blockquote class="blockquote">
+          <p>"Un vrai délice, chaque plat est une explosion de saveurs !"</p>
+          <footer class="blockquote-footer">Aïssata K.</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-6">
+        <blockquote class="blockquote">
+          <p>"Service rapide et plats savoureux. Je recommande à 100%."</p>
+          <footer class="blockquote-footer">Jean-Michel D.</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Appel à l'action -->
+<section class="text-center py-5">
+  <a href="{% url 'app:menu_list' %}" class="btn btn-lg btn-danger">Découvrez tous nos plats</a>
+</section>
+
 {% endblock %}

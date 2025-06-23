@@ -9,6 +9,13 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.name
+    
+class DailySpecial(models.Model):
+    date = models.DateField()
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.menu.name
 
 class Commande(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commandes')

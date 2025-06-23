@@ -18,7 +18,7 @@
           <h5 class="card-title">{{ plat.name }}</h5>
           <p class="card-text">{{ plat.description|truncatewords:15 }}</p>
           <p><strong>{{ plat.price }} FCFA</strong></p>
-          <a href="{% url 'app:menu_detail' plat.pk %}" class="btn btn-primary">Voir le détail</a>
+          <a href="{% url 'app:commande_create' %}" class="btn btn-primary">Commander</a>
         </div>
       </div>
     </div>

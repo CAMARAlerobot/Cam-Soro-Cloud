@@ -10,7 +10,7 @@ body {
 }
 
 h1, h2, h3 {
-  color: #222;
+  color: #191919;
   margin-bottom: 1rem;
 }
 
@@ -24,7 +24,7 @@ a:hover {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1000px;
   margin: auto;
   padding: 2rem 1rem;
 }
@@ -111,11 +111,7 @@ footer h5 {
   margin-bottom: 0.8rem;
 }
 
-/* Misc */
-.text-center {
-  text-align: center;
-}
-
+/* Buttons */
 .btn-primary {
   background-color: #0d6efd;
   border-color: #0d6efd;
@@ -124,4 +120,143 @@ footer h5 {
 .btn-primary:hover {
   background-color: #0b5ed7;
   border-color: #0a58ca;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+/* === Carousel === */
+#carousel {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 100vh;
+  overflow: hidden;
+}
+
+#carousel .slides {
+  display: flex;
+  width: 200%;
+  animation: scroll-carousel 70s linear infinite;
+}
+
+#carousel .slides img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+#carousel .carousel-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: rgba(43, 43, 43, 0.6);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#carousel .carousel-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#carousel .carousel-text .btn {
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+}
+
+#carousel .carousel-text .btn:hover {
+  background-color: #0b5ed7;
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* === Services === */
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.services div {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.services i {
+  font-size: 2rem;
+  color: #0d6efd;
+  margin-bottom: 0.5rem;
+}
+
+/* === Galerie === */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  flex: 1 0 calc(25% - 1rem);
+  max-width: calc(25% - 1rem);
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* === Témoignages === */
+.blockquote {
+  border-left: 4px solid #0d6efd;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.blockquote-footer {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.lead {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #444;
 }
