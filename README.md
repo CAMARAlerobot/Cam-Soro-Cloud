@@ -33,6 +33,6 @@ de la navigation à la finalisation de la commande.
 
 * **Frontend :** HTML, CSS (ou Framework comme Bootstrap/Tailwind), JavaScript (ou Framework comme React/Vue/Angular).
 * **Backend :** Node.js/Python/PHP (avec un Framework comme Express/Django/Laravel).
-* **Base de Données :** (Ex: MySQL, PostgreSQL, MongoDB).
+* **Base de Données :** ( MySQL).
 * **Versionnement :** Git & GitHub/GitLab.
 
